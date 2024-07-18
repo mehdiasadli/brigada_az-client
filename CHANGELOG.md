@@ -19,5 +19,3 @@ All notable changes to this project will be documented in this file.
 - Follow and unfollow users
 - See users' about, feeds and follow lists
 - Logout from your account
-
-Asadov_2001!
