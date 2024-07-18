@@ -2,7 +2,6 @@ import { InfiniteData, InfiniteQueryObserverResult } from '@tanstack/react-query
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { ApiError, SuccessWithPagination } from '../../types/api';
 import { Center, Loader } from '@mantine/core';
-import { useId } from 'react';
 import WithStatus from './WithStatus';
 
 interface InfiniteProps<T> {

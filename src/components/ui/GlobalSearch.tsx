@@ -1,4 +1,4 @@
-import { Box, Card, Loader, Menu, Popover, Stack, Text, TextInput } from '@mantine/core';
+import { Loader, Menu, TextInput } from '@mantine/core';
 import { useField } from '@mantine/form';
 import { IconSearch } from '@tabler/icons-react';
 import { useGlobalSearch } from '../../api/common/queries';

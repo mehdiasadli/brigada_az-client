@@ -1,4 +1,4 @@
-import { Box, Card, CardProps, Flex, Stack, Text } from '@mantine/core';
+import { Card, CardProps, Flex, Stack, Text } from '@mantine/core';
 import { IPost } from '../../types/models';
 import UserPanel from './UserPanel';
 import PostFooter from './PostFooter';

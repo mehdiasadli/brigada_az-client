@@ -1,4 +1,4 @@
-import { Card, Flex, ScrollArea, Stack, Text } from '@mantine/core';
+import { Card, Stack } from '@mantine/core';
 import { IComment, IPost } from '../../types/models';
 import AddComment from './AddComment';
 import { usePostComments } from '../../api/comment/queries';
