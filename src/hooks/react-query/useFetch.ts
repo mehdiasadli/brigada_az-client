@@ -3,7 +3,6 @@ import { ApiError } from '../../types/api';
 import { useEffect } from 'react';
 import { useLogout } from '../../api/auth/mutation';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useFetch = <T = any>(
   key: QueryKey,
   options?: Omit<UseQueryOptions<T, ApiError>, 'queryKey'>
@@ -15,10 +14,10 @@ export const useFetch = <T = any>(
   });
 
   useEffect(() => {
-    if (result.isError && result.error.response?.data?.statusCode === 401) {
+    if (result.error?.response?.data?.statusCode === 401) {
       logout();
     }
-  }, [result.error?.response?.data.statusCode]);
+  }, [logout, result.error?.response?.data.statusCode]);
 
   return result as UseQueryResult<T, ApiError>;
 };

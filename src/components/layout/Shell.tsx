@@ -13,7 +13,7 @@ const Shell = ({ children }: { children: React.ReactNode }) => {
     if (location.pathname) {
       close();
     }
-  }, [location.pathname]);
+  }, [close, location.pathname]);
 
   return (
     <AppShell

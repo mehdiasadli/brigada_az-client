@@ -11,7 +11,6 @@ import { useToast } from '../useToast';
 import { AxiosError } from 'axios';
 import { useLogout } from '../../api/auth/mutation';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useMutate = <TData = any, TVars = void>(
   fn: MutationFunction<TData, TVars>,
   options?: Omit<UseMutationOptions<TData, AxiosError<ErrorRes>, TVars>, 'mutationFn'> & {

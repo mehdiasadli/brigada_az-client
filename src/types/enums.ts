@@ -1,6 +1,6 @@
 export enum ActivityType {
   POST = 'POST',
-  POLL = 'POST',
+  POLL = 'POLL',
   EVENT = 'EVENT',
 }
 

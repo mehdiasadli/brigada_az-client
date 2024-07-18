@@ -21,7 +21,7 @@ const GlobalSearch = () => {
 
   useEffect(() => {
     query.reset();
-  }, [location.pathname]);
+  }, [query, location.pathname]);
 
   return (
     <Menu opened={data?.length !== 0}>
