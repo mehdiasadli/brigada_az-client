@@ -15,5 +15,6 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'off',
     'react-refresh/only-export-components': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
+    'react-hooks/exhaustive-deps': 'off',
   },
 };
