@@ -11,17 +11,21 @@ You can see the future plans in 5 different groups:
 ---
 
 ## High
-
+- Simple Admin Dashboard
 
 ## Medium
 - Profile pictures
+- Indicating is user following you
 
 ## Low
 - Private accounts
+- Notification system
+- Posting images
+- Relocate Friends tab to Followers and Following cards
 
 ## Epic
 - Polls and voting system
 - Events
 
 ## Feedback
-
+- Active nav link on Profile page
