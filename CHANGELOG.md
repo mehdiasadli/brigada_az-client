@@ -14,8 +14,7 @@ All notable changes to this project will be documented in this file. Some change
 Tags meanings:
 - `Fix`: Bug fixes for the user
 - `Feat`: New feature for the user
-- `Docs`: Change to documentation
-- `Ref`: Refactoring code
+- `Add`: New feature, but mainly for the project, not for the users
 
 ---
 
