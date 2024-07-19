@@ -1,6 +1,6 @@
 # CHANGELOG.md
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file. Some changes will be ignored on this file, so for example, you could see v1.x.5 after v1.x.3, it is because the changes on v1.x.4 are not really important for the users and owner ignored it.
 
 ---
 

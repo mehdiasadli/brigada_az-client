@@ -1,6 +1,7 @@
 {
   "name": "Brigada Social Media",
   "short_name": "Brigada",
+  "start_url": ".",
   "description": "A social media application for Brigada members",
   "categories": ["social media", "brigada"],
   "icons": [
