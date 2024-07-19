@@ -16,12 +16,16 @@ const UserName = ({ user, noAction = false }: { user?: IUser; noAction?: boolean
   } as const);
 
   return noAction ? (
-    <Text size='sm'>
+    <Text size={first_name.length + last_name.length > 13 ? 'xs' : 'sm'}>
       {first_name} {last_name} {Icon !== null ? <Icon size={15} /> : null}
     </Text>
   ) : (
     <Group gap={5}>
-      <Text size='sm' component={Link} to={`/profile/${username}`}>
+      <Text
+        size={first_name.length + last_name.length > 13 ? 'xs' : 'sm'}
+        component={Link}
+        to={`/profile/${username}`}
+      >
         {first_name} {last_name}
       </Text>
       {Icon !== null ? <Icon size={12} color={colors.yellow[6]} /> : null}

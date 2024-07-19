@@ -1,4 +1,4 @@
-import { Card, CardProps, Flex, Stack, Text } from '@mantine/core';
+import { Card, CardProps, Flex, LoadingOverlay, Stack, Text } from '@mantine/core';
 import { IPost } from '../../types/models';
 import UserPanel from './UserPanel';
 import PostFooter from './PostFooter';
@@ -7,6 +7,7 @@ import WithStatus from '../layout/WithStatus';
 import { ApiError } from '../../types/api';
 import CommentList from './CommentList';
 import ContentBox from './ContentBox';
+import { useIsMutating } from '@tanstack/react-query';
 
 interface PostProps extends CardProps {
   post: IPost;
@@ -17,9 +18,15 @@ interface PostProps extends CardProps {
 
 const Post = (props: PostProps) => {
   const { post, details = false, ...rest } = props;
+  const isMutating = !!useIsMutating({ mutationKey: ['delete-post', post.id] });
 
   return (
-    <Stack>
+    <Stack pos='relative'>
+      <LoadingOverlay
+        visible={isMutating}
+        overlayProps={{ radius: 'sm', blur: 2 }}
+        loaderProps={{ type: 'dots', color: 'red' }}
+      />
       <Card withBorder {...rest}>
         <Stack>
           <Flex align='center' justify='space-between'>

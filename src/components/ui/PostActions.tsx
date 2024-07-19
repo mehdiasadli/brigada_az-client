@@ -8,7 +8,7 @@ interface PostActionsProps {
 }
 
 const PostActions = (props: PostActionsProps) => {
-  const { mutate, isPending } = useDeletePost();
+  const { mutate, isPending } = useDeletePost(props.post.id);
 
   return (
     <Menu disabled={isPending}>

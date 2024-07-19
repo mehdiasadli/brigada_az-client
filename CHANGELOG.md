@@ -19,6 +19,15 @@ Tags meanings:
 
 ---
 
+## v1.2.1 -- 2024-07-19
+### Feat
+- Loading overlay on deleting posts
+
+### Fix
+- User name overflow on profile header
+- White background instead of an error on post page
+- Post count on profile live update
+
 ## v1.2.0 -- 2024-07-19
 ### Feat:
 - Profile Tabs use background format on active state

@@ -9,14 +9,15 @@ export const useCreatePost = () => {
   return useMutate(service.create, {
     showSuccess: 'Post created successfully',
     showError: true,
-    autoRefetch: (data) => [keys.all(), userKeys.profile(data.authorId)],
+    autoRefetch: () => [keys.all(), userKeys.all()],
   }) as MutationResult<IPost, TCreatePostSchema>;
 };
 
-export const useDeletePost = () => {
+export const useDeletePost = (id: string) => {
   return useMutate(service.delete, {
+    mutationKey: ['delete-post', id],
     showSuccess: 'Post deleted successfully',
     showError: true,
-    autoRefetch: () => [keys.all(), userKeys.profileWithoutUser()],
+    autoRefetch: () => [keys.all(), userKeys.all()],
   }) as MutationResult<void, string>;
 };
