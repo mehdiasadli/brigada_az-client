@@ -33,3 +33,9 @@ Visit Brigada at [brigada.vercel.app](https://brigada.vercel.app)
 
 ## Roadmap
 * You can check out the future plans at [ROADMAP](./ROADMAP.md) file
+
+### LINKS
+- [Website](https://brigada.vercel.app) - Social Media Website
+- [README](https://github.com/mehdiasadli/brigada_az-client/blob/main/README.md) - Information about this project
+- [CHANGELOG](https://github.com/mehdiasadli/brigada_az-client/blob/main/CHANGELOG.md) - Features and version updates of this project
+- [ROADMAP](https://github.com/mehdiasadli/brigada_az-client/blob/main/ROADMAP.md) - Future plans of this project
