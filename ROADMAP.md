@@ -10,10 +10,6 @@ You can see the future plans in 5 different groups:
 
 ---
 
-Also you can see the current version of this project. Owner might think a specific version that the feature will be implemented, if so version (or version range) will be denoted in front of the plan.
-
----
-
 ## High
 
 
