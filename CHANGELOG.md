@@ -18,6 +18,10 @@ Tags meanings:
 
 ---
 
+## v1.0.7 -- 2024-07-19
+### Fix:
+- Fixed feed page total posts incorrect value
+
 ## v1.0.6 -- 2024-07-19
 ### Fix:
 - Fixed the indicator icon on the Admins' names
