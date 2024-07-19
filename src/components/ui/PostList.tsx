@@ -20,23 +20,32 @@ interface PostListProps extends StackProps {
 const PostList = (props: PostListProps) => {
   const { data, hasNext, fetchNext, ...rest } = props;
 
+  const total = data?.pages[0].meta.total_items ?? 0;
+
   return (
     <Stack gap={0} {...rest}>
-      <Flex justify='space-between' align='center'>
-        {data && (
-          <Text fz='xs' c='dimmed'>
-            {data.pages[0].meta.total_items} Total{' '}
-            {data.pages[0].meta.total_items === 1 ? 'Post' : 'Posts'}
-          </Text>
-        )}
-        <SortButton place={props.place} />
-      </Flex>
-      <Infinite
-        data={data}
-        hasNext={hasNext}
-        fetchNext={fetchNext}
-        Item={({ item }) => <Post post={item} />}
-      />
+      {total === 0 ? (
+        <Text ta='center' c='dimmed'>
+          No Posts
+        </Text>
+      ) : (
+        <>
+          <Flex justify='space-between' align='center'>
+            {data && (
+              <Text fz='xs' c='dimmed'>
+                {total} Total {total === 1 ? 'Post' : 'Posts'}
+              </Text>
+            )}
+            {total !== 0 && <SortButton place={props.place} />}
+          </Flex>
+          <Infinite
+            data={data}
+            hasNext={hasNext}
+            fetchNext={fetchNext}
+            Item={({ item }) => <Post post={item} />}
+          />
+        </>
+      )}
     </Stack>
   );
 };

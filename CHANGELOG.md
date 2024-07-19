@@ -18,8 +18,13 @@ Tags meanings:
 
 ---
 
+## v1.0.6 -- 2024-07-19
+### Fix:
+- Fixed the indicator icon on the Admins' names
+- Removed Sort button and total information on Post list when no posts are available
+
 ## v1.0.2 -- 2024-07-19
-### Feat:
+### Add:
 - Added meta information to the website (favicon, title, desc. etc.)
 
 ## v1.0.1 -- 2024-07-18
