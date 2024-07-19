@@ -5,6 +5,7 @@ import { Box } from '@mantine/core';
 import PostList from '../components/ui/PostList';
 import { usePostSorting } from '../store/post-sorting.store';
 import { useDidUpdate } from '@mantine/hooks';
+import MetaTitle from '../components/ui/MetaTitle';
 
 const ProfileFeedPage = () => {
   const { profile } = useOutletContext<OutletContext>();
@@ -22,13 +23,14 @@ const ProfileFeedPage = () => {
 
   return (
     <Box pt={10}>
+      <MetaTitle title={profile.first_name + ' ' + profile.last_name} />
       <PostList
         data={data}
         status={status}
         error={error}
         hasNext={hasNextPage}
         fetchNext={fetchNextPage}
-        place="profile"
+        place='profile'
       />
     </Box>
   );

@@ -4,6 +4,7 @@ import { SegmentedControl, Stack } from '@mantine/core';
 import { useState } from 'react';
 import FollowerList from '../components/ui/FollowerList';
 import FollowingList from '../components/ui/FollowingList';
+import MetaTitle from '../components/ui/MetaTitle';
 
 const ProfileFriendsPage = () => {
   const { profile } = useOutletContext<OutletContext>();
@@ -18,6 +19,7 @@ const ProfileFriendsPage = () => {
 
   return (
     <Stack>
+      <MetaTitle title={profile.first_name + ' ' + profile.last_name + ' | Friends'} />
       <SegmentedControl
         data={['Followers', 'Following']}
         value={section}

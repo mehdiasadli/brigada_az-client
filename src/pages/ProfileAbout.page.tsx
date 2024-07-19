@@ -3,6 +3,7 @@ import { OutletContext } from '../layouts/Profile.layout';
 import { Stack, Text, Title } from '@mantine/core';
 import ContentBox from '../components/ui/ContentBox';
 import dayjs from 'dayjs';
+import MetaTitle from '../components/ui/MetaTitle';
 
 const ProfileAboutPage = () => {
   const { profile } = useOutletContext<OutletContext>();
@@ -10,6 +11,7 @@ const ProfileAboutPage = () => {
 
   return (
     <Stack mt={10}>
+      <MetaTitle title={profile.first_name + ' ' + profile.last_name + ' | About'} />
       <Title ta='center' order={4}>
         About {first_name} {last_name}
       </Title>

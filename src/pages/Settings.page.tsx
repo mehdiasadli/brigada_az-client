@@ -5,6 +5,7 @@ import { TUpdateUserSchema, UpdateUserSchema } from '../schemas/user.schema';
 import dayjs from 'dayjs';
 import { DatePickerInput } from '@mantine/dates';
 import { useUpdateUser } from '../api/user/mutation';
+import MetaTitle from '../components/ui/MetaTitle';
 
 const SettingsPage = () => {
   const user = useUser();
@@ -46,6 +47,7 @@ const SettingsPage = () => {
 
   return (
     <form onSubmit={form.onSubmit(onUpdate)}>
+      <MetaTitle title={user.first_name + ' ' + user.last_name + ' | Edit'} />
       <Stack mt={10}>
         <Title order={2}>Update Your Account</Title>
 
