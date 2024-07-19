@@ -2,12 +2,33 @@
 
 All notable changes to this project will be documented in this file.
 
+---
+
+## Semantics:
+## v{Version} -- [Date]
+### `Tag (see below for information)`
+- Description 1
+- Decription 2
+- etc...
+
+Tags meanings:
+- `Fix`: Bug fixes for the user
+- `Feat`: New feature for the user
+- `Docs`: Change to documentation
+- `Ref`: Refactoring code
+
+---
+
+## v1.0.2 -- 2024-07-19
+### Feat:
+- Added meta information to the website (favicon, title, desc. etc.)
+
 ## v1.0.1 -- 2024-07-18
 ### Fix:
 - Global search query problem
 
 ## v1.0.0 -- 2024-07-18
-### Add:
+### Feature:
 - Register and login with your account
 - Create posts with content
 - Feed with your and following users' posts
