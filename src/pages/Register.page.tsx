@@ -57,6 +57,7 @@ const RegisterPage = () => {
         <TextInput label='Last name' placeholder='ex: Doe' {...form.getInputProps('last_name')} />
         <TextInput
           label='Username'
+          description='You will not be able to change your username later'
           placeholder='ex: jondoe_123'
           {...form.getInputProps('username')}
         />

@@ -1,4 +1,4 @@
-import { Anchor, Flex, Group, Stack, Text } from '@mantine/core';
+import { Anchor, Card, Divider, Flex, Group, Stack, Text } from '@mantine/core';
 import UserPanel from '../ui/UserPanel';
 import { IconHome } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
@@ -19,14 +19,17 @@ const Navbar = () => {
         <UserPanel />
         <LogoutButton />
       </Flex>
-      <Stack mb='auto' mt={25}>
+      <Divider />
+      <Stack mt={10} gap={10}>
         {navbarItems.map((item) => (
-          <Anchor key={item.to} component={Link} to={item.to}>
-            <Group align='center'>
-              <item.Icon size={20} />
-              <Text>{item.label}</Text>
-            </Group>
-          </Anchor>
+          <Card key={item.to} component={Link} to={item.to} shadow='xs'>
+            <Anchor>
+              <Group align='center'>
+                <item.Icon size={20} />
+                <Text>{item.label}</Text>
+              </Group>
+            </Anchor>
+          </Card>
         ))}
       </Stack>
     </Stack>

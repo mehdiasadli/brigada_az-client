@@ -3,6 +3,8 @@ import { IPost } from '../../types/models';
 import { useLikeHandler } from '../../hooks/useLikeHandler';
 import { modals } from '@mantine/modals';
 import LikeListModal from '../modals/LikeListModal';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 interface LikeButtonProps {
   post: IPost;
@@ -15,6 +17,12 @@ const LikeButton = (props: LikeButtonProps) => {
       title: 'Liked Users',
       children: <LikeListModal postId={props.post.id} />,
     });
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    modals.closeAll();
+  }, [pathname]);
 
   return (
     <Group gap={5}>

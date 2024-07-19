@@ -1,6 +1,6 @@
 import { ActionIcon, Tooltip } from '@mantine/core';
 import { Icon as TablerIcon, IconProps } from '@tabler/icons-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const ProfileNavItem = ({
   name,
@@ -11,9 +11,16 @@ const ProfileNavItem = ({
   Icon: React.ForwardRefExoticComponent<IconProps & React.RefAttributes<TablerIcon>>;
   to: string;
 }) => {
+  const { pathname } = useLocation();
+
   return (
     <Tooltip label={name}>
-      <ActionIcon size='xl' variant={'outline'} renderRoot={(props) => <Link {...props} to={to} />}>
+      <ActionIcon
+        size='xl'
+        color='teal.7'
+        variant={pathname.endsWith(to) ? 'light' : 'outline'}
+        renderRoot={(props) => <Link {...props} to={to} />}
+      >
         <Icon size={15} />
       </ActionIcon>
     </Tooltip>

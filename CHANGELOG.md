@@ -15,8 +15,24 @@ Tags meanings:
 - `Fix`: Bug fixes for the user
 - `Feat`: New feature for the user
 - `Add`: New feature, but mainly for the project, not for the users
+- `Style`: Style changes
 
 ---
+
+## v1.2.0 -- 2024-07-19
+### Feat:
+- Profile Tabs use background format on active state
+- Disabled username input to Edit form
+- Username description on Register page
+- Logout confirm modal
+
+### Fix
+- Close like list modal on page change
+
+### Style:
+- Navbar items
+- Logout button to Action Icon
+- Profile tab buttons
 
 ## v1.0.7 -- 2024-07-19
 ### Fix:
@@ -36,7 +52,7 @@ Tags meanings:
 - Global search query problem
 
 ## v1.0.0 -- 2024-07-18
-### Feature:
+### Feat:
 - Register and login with your account
 - Create posts with content
 - Feed with your and following users' posts

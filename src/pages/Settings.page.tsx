@@ -54,6 +54,13 @@ const SettingsPage = () => {
         <TextInput label='First name' placeholder='ex: Jon' {...form.getInputProps('first_name')} />
         <TextInput label='Last name' placeholder='ex: Doe' {...form.getInputProps('last_name')} />
         <TextInput
+          readOnly
+          value={user.username}
+          label='Username'
+          disabled
+          description='You cannot change your username'
+        />
+        <TextInput
           label='Email'
           placeholder='ex: jondoe@example.com'
           {...form.getInputProps('email')}
