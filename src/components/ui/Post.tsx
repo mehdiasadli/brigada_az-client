@@ -7,7 +7,6 @@ import WithStatus from '../layout/WithStatus';
 import { ApiError } from '../../types/api';
 import CommentList from './CommentList';
 import ContentBox from './ContentBox';
-import OG from './OG';
 
 interface PostProps extends CardProps {
   post: IPost;
@@ -21,8 +20,6 @@ const Post = (props: PostProps) => {
 
   return (
     <Stack>
-      <OG title={post.content.slice(0, 30) + '...'} desc={`Post from @${post.author.username}`} />
-
       <Card withBorder {...rest}>
         <Stack>
           <Flex align='center' justify='space-between'>
