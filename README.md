@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# Brigada
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Brigada is a social media platform created for me and my friends to connect and share moments. The platform is designed to offer a seamless and enjoyable user experience.
 
-Currently, two official plugins are available:
+## Project URL
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Visit Brigada at [brigada.vercel.app](https://brigada.vercel.app)
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Language
+- **TypeScript**: Ensures strong typing and a consistent development experience.
 
-- Configure the top-level `parserOptions` property like this:
+### Frontend
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **React**: A JavaScript library for building user interfaces.
+- **Vite**: A modern frontend build tool that provides a fast development experience.
+- **Vercel**: A platform for frontend frameworks and static sites, **used for deployment**.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Backend
+
+- **NodeJS**: A JavaScript runtime built on Chrome's V8 engine.
+- **NestJS**: A progressive Node.js framework for building efficient, reliable, and scalable server-side applications.
+- **Railway**: A platform for deploying, managing, and scaling applications and databases, **used for deployment**.
+
+### Database
+- **PostgreSQL**: A powerful, open-source object-relational database system with a strong reputation for reliability.
+- **Prisma ORM**: A next-generation ORM for Node.js and TypeScript that provides a type-safe and intuitive data modeling experience.
+- **Supabase**: An open-source Firebase alternative that provides instant APIs and real-time subscriptions on top of a PostgreSQL database, **used for deployment**.
+
+## Features
+* You can check out the features at [CHANGELOG](./CHANGELOG.md) file
+
+## Roadmap
+* You can check out the future plans at [ROADMAP](./ROADMAP.md) file
