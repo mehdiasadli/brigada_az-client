@@ -14,6 +14,8 @@ export const service = {
 
 export const keys = {
   all: () => ['users'] as const,
+  detailsWithoutUser: () => [...keys.all(), 'details'] as const,
+  profileWithoutUser: () => [...keys.detailsWithoutUser(), 'profile'] as const,
   details: (userId: string) => [...keys.all(), 'details', userId] as const,
   profile: (userId: string) => [...keys.details(userId), 'profile'] as const,
   search: () => [...keys.all(), 'search'] as const,
