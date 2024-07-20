@@ -3,11 +3,11 @@ import { IPost } from '../../types/models';
 import UserPanel from './UserPanel';
 import PostFooter from './PostFooter';
 import dayjs from 'dayjs';
-import WithStatus from '../layout/WithStatus';
 import { ApiError } from '../../types/api';
 import CommentList from './CommentList';
 import ContentBox from './ContentBox';
 import { useIsMutating } from '@tanstack/react-query';
+import { useStatus } from '../../hooks/useStatus';
 
 interface PostProps extends CardProps {
   post: IPost;
@@ -16,18 +16,20 @@ interface PostProps extends CardProps {
   details?: boolean;
 }
 
-const Post = (props: PostProps) => {
-  const { post, details = false, ...rest } = props;
+const Post = ({ post, status = 'pending', error, details = false, ...props }: PostProps) => {
   const isMutating = !!useIsMutating({ mutationKey: ['delete-post', post.id] });
+  const { Element } = useStatus({ status, error });
 
-  return (
+  return Element && details ? (
+    Element
+  ) : (
     <Stack pos='relative'>
       <LoadingOverlay
         visible={isMutating}
         overlayProps={{ radius: 'sm', blur: 2 }}
         loaderProps={{ type: 'dots', color: 'red' }}
       />
-      <Card withBorder {...rest}>
+      <Card withBorder {...props}>
         <Stack>
           <Flex align='center' justify='space-between'>
             <UserPanel user={post.author} withUsername />
@@ -44,4 +46,4 @@ const Post = (props: PostProps) => {
   );
 };
 
-export default WithStatus<PostProps>(Post);
+export default Post;

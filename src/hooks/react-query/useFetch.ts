@@ -10,6 +10,7 @@ export const useFetch = <T = any>(
   const logout = useLogout();
   const result = useQuery<T, ApiError>({
     queryKey: key,
+    retry: 0,
     ...options,
   });
 

@@ -19,6 +19,15 @@ Tags meanings:
 
 ---
 
+## v1.2.2 -- 2024-07-19
+### Feat
+- Remove friends tab from Profile
+- You can see follower and following list on profile header
+- Birthday info on profile header
+
+### Add
+- More standard Error and Loading components
+
 ## v1.2.1 -- 2024-07-19
 ### Feat
 - Loading overlay on deleting posts

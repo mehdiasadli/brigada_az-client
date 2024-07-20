@@ -1,19 +1,23 @@
 import { InfiniteData, InfiniteQueryObserverResult } from '@tanstack/react-query';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { ApiError, SuccessWithPagination } from '../../types/api';
-import { Center, Loader } from '@mantine/core';
-import WithStatus from './WithStatus';
+import { useStatus } from '../../hooks/useStatus';
+import { LoadingProps } from '../ui/Loading';
+import { ErrorComponentProps } from '../ui/ErrorComponent';
+
+type FetchFn<T> = () => Promise<
+  InfiniteQueryObserverResult<InfiniteData<SuccessWithPagination<T>, number>, ApiError>
+>;
 
 interface InfiniteProps<T> {
   data?: InfiniteData<SuccessWithPagination<T>, unknown> | undefined;
   hasNext?: boolean;
-  fetchNext: () => Promise<
-    InfiniteQueryObserverResult<InfiniteData<SuccessWithPagination<T>, number>, ApiError>
-  >;
-  loader?: JSX.Element;
+  fetchNext: FetchFn<T>;
+  loadingProps?: LoadingProps;
+  errorProps?: ErrorComponentProps;
   status?: 'pending' | 'success' | 'error';
   error?: ApiError | null;
-  noContentLabel?: string;
+  inverse?: boolean;
 
   style?: React.CSSProperties | undefined;
   gap?: number;
@@ -24,39 +28,59 @@ interface InfiniteProps<T> {
   Item: React.FC<{ item: T; index: number }>;
 }
 
-const Infinite = (props: InfiniteProps<any>) => {
-  const result = props.data?.pages.map((page) => page.data)?.flat();
+const Infinite = ({
+  Item,
+  fetchNext,
+  data,
+  dir = 'column',
+  error,
+  gap = 10,
+  errorProps,
+  hasNext,
+  inverse = false,
+  loadingProps,
+  px = 0,
+  py = 10,
+  status = 'pending',
+  style,
+}: InfiniteProps<any>) => {
+  const result = data?.pages.map((page) => page.data)?.flat();
+  const { ErrorElement, LoadingElement } = useStatus({
+    status: status,
+    error,
+    loadingProps,
+    errorProps,
+  });
 
   const styles: React.CSSProperties = {
     display: 'flex',
-    flexDirection: props.dir ?? 'column',
-    gap: props.gap ?? 10,
-    paddingBlock: props.py ?? 10,
-    paddingInline: props.px ?? 0,
-    ...props.style,
+    flexDirection: dir,
+    gap: gap,
+    paddingBlock: py,
+    paddingInline: px,
+    ...style,
   };
   const length = result?.length ?? 0;
+
+  if (status === 'error') {
+    return ErrorElement;
+  }
 
   return (
     <InfiniteScroll
       style={styles}
       dataLength={length}
-      hasMore={props.hasNext ?? false}
-      next={props.fetchNext}
+      hasMore={hasNext ?? false}
+      next={fetchNext}
       scrollThreshold={'50%'}
-      loader={
-        props.loader ?? (
-          <Center my={10}>
-            <Loader type='dots' size='xs' />
-          </Center>
-        )
-      }
+      inverse={inverse}
+      loader={LoadingElement}
     >
       {result?.map((item, i) => (
-        <props.Item key={item.id} item={item} index={i} />
+        <Item key={item.id} item={item} index={i} />
       ))}
     </InfiniteScroll>
   );
 };
 
-export default WithStatus(Infinite);
+export default Infinite;

@@ -1,4 +1,4 @@
-import { Card, Stack, Text } from '@mantine/core';
+import { Button, Stack, Text } from '@mantine/core';
 
 const ProfileStatCard = ({
   data,
@@ -6,22 +6,34 @@ const ProfileStatCard = ({
   gap = 0,
   p = 5,
   noPlural = false,
+  open,
 }: {
   data: number;
   label: string;
   gap?: number;
   p?: number;
   noPlural?: boolean;
+  open?: () => void;
 }) => {
   label = noPlural ? label : data === 1 ? label : label + 's';
 
   return (
-    <Card withBorder p={p} shadow='xs'>
+    <Button
+      size='xl'
+      variant='subtle'
+      p={p}
+      sx={(theme) => ({ boxShadow: theme.shadows.xs, cursor: open ? 'cursor' : 'default' })}
+      onClick={() => {
+        if (open) {
+          open();
+        }
+      }}
+    >
       <Stack gap={gap} align='center'>
         <Text fw='bold'>{data}</Text>
         <Text fz='xs'>{label}</Text>
       </Stack>
-    </Card>
+    </Button>
   );
 };
 

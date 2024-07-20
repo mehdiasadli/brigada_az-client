@@ -1,20 +1,23 @@
-import { Stack, Text } from '@mantine/core';
+import { Stack } from '@mantine/core';
 import { useFollowers } from '../../api/followship/queries';
 import Infinite from '../layout/Infinite';
 import { IFollowship } from '../../types/models';
 import UserPanel from './UserPanel';
 import dayjs from 'dayjs';
+import { useData } from '../../hooks/useData';
 
 const FollowerList = ({ userId }: { userId: string }) => {
   const { data, status, error, hasNextPage, fetchNextPage } = useFollowers(userId);
-
-  const nodata = data?.pages[0].meta.total_items === 0;
+  const { Element } = useData({
+    data,
+    status,
+    error,
+    noContentLabel: 'No followers',
+  });
 
   return (
-    <Stack px={10}>
-      {nodata ? (
-        <Text ta='center'>No Followers</Text>
-      ) : (
+    Element ?? (
+      <Stack px={10}>
         <Infinite
           status={status}
           error={error}
@@ -28,8 +31,8 @@ const FollowerList = ({ userId }: { userId: string }) => {
             />
           )}
         />
-      )}
-    </Stack>
+      </Stack>
+    )
   );
 };
 

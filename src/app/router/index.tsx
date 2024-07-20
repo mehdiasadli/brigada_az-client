@@ -7,10 +7,8 @@ import { useAuth } from '../../store/auth.store';
 import HomeLayout from '../../layouts/Home.layout';
 import FeedPage from '../../pages/Feed.page';
 import ProfileLayout from '../../layouts/Profile.layout';
-import ProfileAboutPage from '../../pages/ProfileAbout.page';
 import PostPage from '../../pages/Post.page';
 import ProfileFeedPage from '../../pages/ProfileFeed.page';
-import ProfileFriendsPage from '../../pages/ProfileFriends.page';
 import SettingsPage from '../../pages/Settings.page';
 
 const Router = () => {
@@ -29,8 +27,6 @@ const Router = () => {
           <Route path='settings' element={<SettingsPage />} />
           <Route path='profile/:username' element={<ProfileLayout />}>
             <Route index element={<ProfileFeedPage />} />
-            <Route path='about' element={<ProfileAboutPage />} />
-            <Route path='friends' element={<ProfileFriendsPage />} />
           </Route>
         </Route>
         <Route path='*' element={<h1>Not Found</h1>} />

@@ -36,6 +36,7 @@ export const useListFetch = <T = any>(
     queryKey: key,
     queryFn: (props) => queryFn(props),
     initialPageParam: 1,
+    retry: 0,
     getNextPageParam(page) {
       return page.meta.next_page;
     },
