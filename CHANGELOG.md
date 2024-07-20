@@ -19,7 +19,7 @@ Tags meanings:
 
 ---
 
-## v1.2.2 -- 2024-07-19
+## v1.2.2 -- 2024-07-20
 ### Feat
 - Remove friends tab from Profile
 - You can see follower and following list on profile header
