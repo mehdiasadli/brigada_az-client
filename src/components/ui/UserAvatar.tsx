@@ -3,7 +3,11 @@ import { useUser } from '../../hooks/useUser';
 import { IUser } from '../../types/models';
 import { roler } from '../../utils/roler';
 
-const UserAvatar = (props: AvatarProps & { user?: IUser }) => {
+interface UserAvatarProps extends AvatarProps {
+  user?: IUser;
+}
+
+export default function UserAvatar(props: UserAvatarProps) {
   const { user, size = 'sm', ...rest } = props;
   const { first_name, last_name, avatar, roles } = user ?? useUser();
 
@@ -16,6 +20,4 @@ const UserAvatar = (props: AvatarProps & { user?: IUser }) => {
   return (
     <Avatar color={color} name={first_name + ' ' + last_name} src={avatar} size={size} {...rest} />
   );
-};
-
-export default UserAvatar;
+}

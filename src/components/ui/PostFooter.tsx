@@ -9,19 +9,17 @@ interface PostFooterProps {
   post: IPost;
 }
 
-const PostFooter = (props: PostFooterProps) => {
+export default function PostFooter({ post }: PostFooterProps) {
   const { id } = useUser();
-  const isAuthor = props.post.authorId === id;
+  const isAuthor = post.authorId === id;
 
   return (
     <Flex align='center' justify='space-between'>
       <Group>
-        <LikeButton post={props.post} />
-        <CommentButton post={props.post} />
+        <LikeButton post={post} />
+        <CommentButton post={post} />
       </Group>
-      {isAuthor && <PostActions post={props.post} />}
+      {isAuthor && <PostActions post={post} />}
     </Flex>
   );
-};
-
-export default PostFooter;
+}

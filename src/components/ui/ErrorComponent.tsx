@@ -6,16 +6,14 @@ export interface ErrorComponentProps extends Omit<AlertProps, 'title'> {
   error?: React.ReactNode;
 }
 
-const ErrorComponent = ({
+export default function ErrorComponent({
   containerProps,
   error = 'Unexpected error occured. Please try again.',
   ...props
-}: ErrorComponentProps) => {
+}: ErrorComponentProps) {
   return (
     <Center {...containerProps}>
       <Alert icon={<IconExclamationCircle />} color='red' title={error} {...props} />
     </Center>
   );
-};
-
-export default ErrorComponent;
+}

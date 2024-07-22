@@ -4,7 +4,11 @@ import { IconCake, IconUserPlus } from '@tabler/icons-react';
 import dayjs from 'dayjs';
 import { IUser } from '../../types/models';
 
-const ProfileDesc = ({ user }: { user: IUser }) => {
+interface ProfileDescProps {
+  user: IUser;
+}
+
+export default function ProfileDesc({ user }: ProfileDescProps) {
   const {
     colors: { gray },
   } = useMantineTheme();
@@ -25,6 +29,4 @@ const ProfileDesc = ({ user }: { user: IUser }) => {
       </Group>
     </Flex>
   );
-};
-
-export default ProfileDesc;
+}

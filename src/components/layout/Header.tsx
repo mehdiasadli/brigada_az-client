@@ -2,7 +2,12 @@ import { Burger, Flex, Group } from '@mantine/core';
 import CreateButton from '../buttons/CreateButton';
 import GlobalSearch from '../ui/GlobalSearch';
 
-const Header = ({ opened, toggle }: { opened: boolean; toggle: () => void }) => {
+interface HeaderProps {
+  opened: boolean;
+  toggle: () => void;
+}
+
+export default function Header({ opened, toggle }: HeaderProps) {
   return (
     <Flex align='center' h='100%' justify='space-between'>
       <Group align='center'>
@@ -12,6 +17,4 @@ const Header = ({ opened, toggle }: { opened: boolean; toggle: () => void }) => 
       <CreateButton />
     </Flex>
   );
-};
-
-export default Header;
+}

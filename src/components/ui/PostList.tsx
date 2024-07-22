@@ -16,7 +16,15 @@ interface PostListProps extends StackProps {
   place: 'feed' | 'profile';
 }
 
-const PostList = ({ data, status, error, hasNext, fetchNext, place, ...props }: PostListProps) => {
+export default function PostList({
+  data,
+  status,
+  error,
+  hasNext,
+  fetchNext,
+  place,
+  ...props
+}: PostListProps) {
   const { Element, total } = useData({
     data,
     status,
@@ -34,15 +42,10 @@ const PostList = ({ data, status, error, hasNext, fetchNext, place, ...props }: 
           )}
           {total !== 0 && <SortButton place={place} />}
         </Flex>
-        <Infinite
-          data={data}
-          hasNext={hasNext}
-          fetchNext={fetchNext}
-          Item={({ item }) => <Post post={item} />}
-        />
+        <Infinite data={data} hasNext={hasNext} fetchNext={fetchNext}>
+          {({ item }) => <Post post={item} />}
+        </Infinite>
       </Stack>
     )
   );
-};
-
-export default PostList;
+}

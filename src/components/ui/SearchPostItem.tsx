@@ -5,10 +5,16 @@ import { IconTextCaption } from '@tabler/icons-react';
 import { cutContent } from '../../utils/cutContent';
 import dayjs from 'dayjs';
 
-const SearchPostItem = ({ item, query = '' }: { item: SearchResPost; query?: string }) => {
+interface SearchPostItemProps {
+  item: SearchResPost;
+  query?: string;
+}
+
+export default function SearchPostItem({ item, query = '' }: SearchPostItemProps) {
   const {
     colors: { green },
   } = useMantineTheme();
+
   return (
     <Menu.Item renderRoot={(p) => <Link {...p} to={`/posts/${item.id}`} />}>
       <Group>
@@ -27,6 +33,4 @@ const SearchPostItem = ({ item, query = '' }: { item: SearchResPost; query?: str
       </Group>
     </Menu.Item>
   );
-};
-
-export default SearchPostItem;
+}

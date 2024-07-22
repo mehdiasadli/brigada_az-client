@@ -11,9 +11,9 @@ interface ProfileHeaderProps {
   profile: IProfile;
 }
 
-const ProfileHeader = (props: ProfileHeaderProps) => {
+export default function ProfileHeader({ profile }: ProfileHeaderProps) {
   const { id } = useUser();
-  const { _count, ...user } = props.profile;
+  const { _count, ...user } = profile;
   const isCurrent = id === user.id;
 
   return (
@@ -23,11 +23,9 @@ const ProfileHeader = (props: ProfileHeaderProps) => {
           <UserPanel avatarSize='md' user={user} withUsername />
           {isCurrent ? <EditButton /> : <FollowButton user={user} />}
         </Flex>
-        <ProfileStats profile={props.profile} />
+        <ProfileStats profile={profile} />
         <ProfileDesc user={user} />
       </Stack>
     </Card>
   );
-};
-
-export default ProfileHeader;
+}

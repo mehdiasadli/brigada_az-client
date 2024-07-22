@@ -4,12 +4,10 @@ export interface LoadingProps extends LoaderProps {
   containerProps?: CenterProps;
 }
 
-const Loading = ({ containerProps, ...props }: LoadingProps) => {
+export default function Loading({ containerProps, ...props }: LoadingProps) {
   return (
     <Center mt={10} {...containerProps}>
       <Loader type='dots' size='sm' {...props} />
     </Center>
   );
-};
-
-export default Loading;
+}

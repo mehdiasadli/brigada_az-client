@@ -10,8 +10,8 @@ interface LikeListModalProps {
   postId: string;
 }
 
-const LikeListModal = (props: LikeListModalProps) => {
-  const { data, hasNextPage, fetchNextPage, status, error } = usePostLikes(props.postId);
+export default function LikeListModal({ postId }: LikeListModalProps) {
+  const { data, hasNextPage, fetchNextPage, status, error } = usePostLikes(postId);
   const {
     colors: { red },
   } = useMantineTheme();
@@ -26,15 +26,14 @@ const LikeListModal = (props: LikeListModalProps) => {
         fetchNext={fetchNextPage}
         gap={20}
         px={5}
-        Item={({ item }: { item: ILike }) => (
+      >
+        {({ item }: { item: ILike }) => (
           <Flex align='center' justify='space-between'>
             <UserPanel user={item.user} description={dayjs(item.created_at).fromNow()} />
             <IconHeartFilled color={red[6]} size={25} />
           </Flex>
         )}
-      />
+      </Infinite>
     </Stack>
   );
-};
-
-export default LikeListModal;
+}

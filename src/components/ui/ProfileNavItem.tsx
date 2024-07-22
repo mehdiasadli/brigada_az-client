@@ -2,15 +2,13 @@ import { ActionIcon, Tooltip } from '@mantine/core';
 import { Icon as TablerIcon, IconProps } from '@tabler/icons-react';
 import { Link, useLocation } from 'react-router-dom';
 
-const ProfileNavItem = ({
-  name,
-  Icon,
-  to,
-}: {
+interface ProfileNavItemProps {
   name: string;
   Icon: React.ForwardRefExoticComponent<IconProps & React.RefAttributes<TablerIcon>>;
   to: string;
-}) => {
+}
+
+export default function ProfileNavItem({ name, Icon, to }: ProfileNavItemProps) {
   const { pathname } = useLocation();
 
   return (
@@ -25,6 +23,4 @@ const ProfileNavItem = ({
       </ActionIcon>
     </Tooltip>
   );
-};
-
-export default ProfileNavItem;
+}

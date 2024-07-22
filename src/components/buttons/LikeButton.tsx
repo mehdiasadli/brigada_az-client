@@ -10,12 +10,12 @@ interface LikeButtonProps {
   post: IPost;
 }
 
-const LikeButton = (props: LikeButtonProps) => {
-  const { onLike, totalLikes, Icon } = useLikeHandler(props.post.id, props.post.likes);
+export default function LikeButton({ post }: LikeButtonProps) {
+  const { onLike, totalLikes, Icon } = useLikeHandler(post.id, post.likes);
   const openListModal = () =>
     modals.open({
       title: 'Liked Users',
-      children: <LikeListModal postId={props.post.id} />,
+      children: <LikeListModal postId={post.id} />,
     });
 
   const { pathname } = useLocation();
@@ -34,6 +34,4 @@ const LikeButton = (props: LikeButtonProps) => {
       </Anchor>
     </Group>
   );
-};
-
-export default LikeButton;
+}

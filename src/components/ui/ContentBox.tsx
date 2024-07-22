@@ -5,16 +5,16 @@ interface ContentBoxProps extends BoxProps {
   textProps?: TextProps;
 }
 
-const ContentBox = (props: ContentBoxProps) => {
-  const { content, textProps = { size: 'sm' }, ...rest } = props;
-
+export default function ContentBox({
+  content,
+  textProps = { size: 'sm' },
+  ...props
+}: ContentBoxProps) {
   return (
-    <Box bg='gray.0' py={8} px={12} sx={(theme) => ({ borderRadius: theme.radius.md })} {...rest}>
+    <Box bg='gray.0' py={8} px={12} {...props}>
       <Text size='sm' {...textProps}>
         {content}
       </Text>
     </Box>
   );
-};
-
-export default ContentBox;
+}

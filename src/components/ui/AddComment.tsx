@@ -9,7 +9,7 @@ interface AddCommentProps {
   post: IPost;
 }
 
-const AddComment = (props: AddCommentProps) => {
+export default function AddComment({ post }: AddCommentProps) {
   const form = useForm<TAddCommentSchema>({
     initialValues: {
       content: '',
@@ -23,7 +23,7 @@ const AddComment = (props: AddCommentProps) => {
   const onAdd = (values: TAddCommentSchema) => {
     mutate(
       {
-        postId: props.post.id,
+        postId: post.id,
         data: values,
       },
       {
@@ -50,6 +50,4 @@ const AddComment = (props: AddCommentProps) => {
       />
     </form>
   );
-};
-
-export default AddComment;
+}

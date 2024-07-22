@@ -1,7 +1,7 @@
 import { Container, Flex } from '@mantine/core';
 import UserPanel from '../ui/UserPanel';
 
-const ProfileBar = () => {
+export default function ProfileBar() {
   return (
     <Flex pos='fixed' bottom={0} left={0} right={0} justify='center' sx={{ zIndex: 100 }} bg='red'>
       <Container
@@ -22,6 +22,4 @@ const ProfileBar = () => {
       </Container>
     </Flex>
   );
-};
-
-export default ProfileBar;
+}

@@ -16,7 +16,13 @@ interface PostProps extends CardProps {
   details?: boolean;
 }
 
-const Post = ({ post, status = 'pending', error, details = false, ...props }: PostProps) => {
+export default function Post({
+  post,
+  status = 'pending',
+  error,
+  details = false,
+  ...props
+}: PostProps) {
   const isMutating = !!useIsMutating({ mutationKey: ['delete-post', post.id] });
   const { Element } = useStatus({ status, error });
 
@@ -44,6 +50,4 @@ const Post = ({ post, status = 'pending', error, details = false, ...props }: Po
       {details && <CommentList post={post} />}
     </Stack>
   );
-};
-
-export default Post;
+}

@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const Shell = ({ children }: { children: React.ReactNode }) => {
+export default function Shell({ children }: { children: React.ReactNode }) {
   const [opened, { toggle, close }] = useDisclosure();
   const location = useLocation();
 
@@ -33,6 +33,4 @@ const Shell = ({ children }: { children: React.ReactNode }) => {
       <AppShell.Main>{children}</AppShell.Main>
     </AppShell>
   );
-};
-
-export default Shell;
+}

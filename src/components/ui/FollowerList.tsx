@@ -6,7 +6,11 @@ import UserPanel from './UserPanel';
 import dayjs from 'dayjs';
 import { useData } from '../../hooks/useData';
 
-const FollowerList = ({ userId }: { userId: string }) => {
+interface FollowerListProps {
+  userId: string;
+}
+
+export default function FollowerList({ userId }: FollowerListProps) {
   const { data, status, error, hasNextPage, fetchNextPage } = useFollowers(userId);
   const { Element } = useData({
     data,
@@ -24,16 +28,15 @@ const FollowerList = ({ userId }: { userId: string }) => {
           data={data}
           hasNext={hasNextPage}
           fetchNext={fetchNextPage}
-          Item={({ item }: { item: IFollowship }) => (
+        >
+          {({ item }: { item: IFollowship }) => (
             <UserPanel
               user={item.follower}
               description={'Since ' + dayjs(item.created_at).format('DD.MM.YYYY')}
             />
           )}
-        />
+        </Infinite>
       </Stack>
     )
   );
-};
-
-export default FollowerList;
+}

@@ -7,8 +7,8 @@ interface PostActionsProps {
   post: IPost;
 }
 
-const PostActions = (props: PostActionsProps) => {
-  const { mutate, isPending } = useDeletePost(props.post.id);
+export default function PostActions({ post }: PostActionsProps) {
+  const { mutate, isPending } = useDeletePost(post.id);
 
   return (
     <Menu disabled={isPending}>
@@ -22,13 +22,11 @@ const PostActions = (props: PostActionsProps) => {
         <Menu.Item
           leftSection={<IconTrash size={15} />}
           color='red'
-          onClick={() => mutate(props.post.id)}
+          onClick={() => mutate(post.id)}
         >
           Delete
         </Menu.Item>
       </Menu.Dropdown>
     </Menu>
   );
-};
-
-export default PostActions;
+}

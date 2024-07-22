@@ -7,17 +7,15 @@ interface CommentButtonProps {
   post: IPost;
 }
 
-const CommentButton = (props: CommentButtonProps) => {
+export default function CommentButton({ post }: CommentButtonProps) {
   return (
-    <Group gap={5} renderRoot={(p) => <Link {...p} to={`/posts/${props.post.id}`} />}>
+    <Group gap={5} renderRoot={(p) => <Link {...p} to={`/posts/${post.id}`} />}>
       <ActionIcon color='teal' variant='transparent'>
         <IconMessage size={16} />
       </ActionIcon>
       <Anchor component='p' size='xs' c='dimmed'>
-        {props.post.comments.length} {props.post.comments.length === 1 ? 'Comment' : 'Comments'}
+        {post.comments.length} {post.comments.length === 1 ? 'Comment' : 'Comments'}
       </Anchor>
     </Group>
   );
-};
-
-export default CommentButton;
+}

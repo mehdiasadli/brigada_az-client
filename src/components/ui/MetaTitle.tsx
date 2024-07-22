@@ -1,11 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 
-const MetaTitle = ({ title = 'Brigada' }: { title?: string }) => {
+export default function MetaTitle({ title = 'Brigada' }: { title?: string }) {
   return (
     <Helmet>
       <title>{title}</title>
     </Helmet>
   );
-};
-
-export default MetaTitle;
+}

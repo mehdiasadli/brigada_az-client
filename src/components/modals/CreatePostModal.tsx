@@ -5,7 +5,7 @@ import { TCreatePostSchema } from '../../schemas/post.schema';
 import { useCreatePost } from '../../api/post/mutation';
 import { modals } from '@mantine/modals';
 
-const CreatePostModal = () => {
+export default function CreatePostModal() {
   const form = useForm<TCreatePostSchema>({
     initialValues: {
       content: '',
@@ -40,6 +40,4 @@ const CreatePostModal = () => {
       </Stack>
     </form>
   );
-};
-
-export default CreatePostModal;
+}

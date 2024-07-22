@@ -1,14 +1,18 @@
-import { Button, Menu } from '@mantine/core';
+import { Button, ButtonProps, Menu } from '@mantine/core';
 import { IconSortAscending, IconSortAscending2, IconSortDescending2 } from '@tabler/icons-react';
 import { usePostSorting } from '../../store/post-sorting.store';
 
-const SortButton = ({ place = 'feed' }: { place: 'feed' | 'profile' }) => {
+interface SortButtonProps extends ButtonProps {
+  place: 'feed' | 'profile';
+}
+
+export default function SortButton({ place = 'feed', ...props }: SortButtonProps) {
   const { changeOrder } = usePostSorting();
 
   return (
     <Menu>
       <Menu.Target>
-        <Button variant='light' leftSection={<IconSortAscending size={15} />}>
+        <Button variant='light' leftSection={<IconSortAscending size={15} />} {...props}>
           Sort
         </Button>
       </Menu.Target>
@@ -39,6 +43,4 @@ const SortButton = ({ place = 'feed' }: { place: 'feed' | 'profile' }) => {
       </Menu.Dropdown>
     </Menu>
   );
-};
-
-export default SortButton;
+}

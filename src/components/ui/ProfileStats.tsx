@@ -5,7 +5,11 @@ import { modals } from '@mantine/modals';
 import FollowerList from './FollowerList';
 import FollowingList from './FollowingList';
 
-const ProfileStats = ({ profile, ...props }: { profile: IProfile } & SimpleGridProps) => {
+interface ProfileStatsProps extends SimpleGridProps {
+  profile: IProfile;
+}
+
+export default function ProfileStats({ profile, ...props }: ProfileStatsProps) {
   const openFollowerList = () =>
     modals.open({
       title: 'Followers',
@@ -30,6 +34,4 @@ const ProfileStats = ({ profile, ...props }: { profile: IProfile } & SimpleGridP
       <ProfileStatCard data={profile._count.posts} label='Post' />
     </SimpleGrid>
   );
-};
-
-export default ProfileStats;
+}

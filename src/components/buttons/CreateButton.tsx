@@ -1,14 +1,9 @@
 import { Button, Menu } from '@mantine/core';
 import { modals } from '@mantine/modals';
-import {
-  // IconCalendar,
-  IconPlus,
-  // IconSelect,
-  IconTextCaption,
-} from '@tabler/icons-react';
+import { IconPlus, IconTextCaption } from '@tabler/icons-react';
 import CreatePostModal from '../modals/CreatePostModal';
 
-const CreateButton = () => {
+export default function CreateButton() {
   const createPost = () =>
     modals.open({
       title: 'Create Post',
@@ -27,15 +22,7 @@ const CreateButton = () => {
         <Menu.Item onClick={createPost} color='green' leftSection={<IconTextCaption size={14} />}>
           Post
         </Menu.Item>
-        {/* <Menu.Item color='red' leftSection={<IconCalendar size={14} />}>
-          Event
-        </Menu.Item>
-        <Menu.Item color='teal' leftSection={<IconSelect size={14} />}>
-          Poll
-        </Menu.Item> */}
       </Menu.Dropdown>
     </Menu>
   );
-};
-
-export default CreateButton;
+}

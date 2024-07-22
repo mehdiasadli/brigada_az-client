@@ -4,12 +4,13 @@ import { ApiError, SuccessWithPagination } from '../../types/api';
 import { useStatus } from '../../hooks/useStatus';
 import { LoadingProps } from '../ui/Loading';
 import { ErrorComponentProps } from '../ui/ErrorComponent';
+import React from 'react';
 
 type FetchFn<T> = () => Promise<
   InfiniteQueryObserverResult<InfiniteData<SuccessWithPagination<T>, number>, ApiError>
 >;
 
-interface InfiniteProps<T> {
+interface InfiniteProps<T extends { id: string }> {
   data?: InfiniteData<SuccessWithPagination<T>, unknown> | undefined;
   hasNext?: boolean;
   fetchNext: FetchFn<T>;
@@ -18,18 +19,15 @@ interface InfiniteProps<T> {
   status?: 'pending' | 'success' | 'error';
   error?: ApiError | null;
   inverse?: boolean;
-
   style?: React.CSSProperties | undefined;
   gap?: number;
   py?: number;
   px?: number;
   dir?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-
-  Item: React.FC<{ item: T; index: number }>;
+  children: React.FC<{ item: T; index: number }>;
 }
 
-const Infinite = ({
-  Item,
+export default function Infinite<T extends { id: string }>({
   fetchNext,
   data,
   dir = 'column',
@@ -43,7 +41,8 @@ const Infinite = ({
   py = 10,
   status = 'pending',
   style,
-}: InfiniteProps<any>) => {
+  children,
+}: InfiniteProps<T>) {
   const result = data?.pages.map((page) => page.data)?.flat();
   const { ErrorElement, LoadingElement } = useStatus({
     status: status,
@@ -77,10 +76,8 @@ const Infinite = ({
       loader={LoadingElement}
     >
       {result?.map((item, i) => (
-        <Item key={item.id} item={item} index={i} />
+        <React.Fragment key={item.id}>{children({ item, index: i })}</React.Fragment>
       ))}
     </InfiniteScroll>
   );
-};
-
-export default Infinite;
+}

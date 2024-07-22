@@ -3,7 +3,12 @@ import { SearchResUser } from '../../api/common/res';
 import UserAvatar from './UserAvatar';
 import { Link } from 'react-router-dom';
 
-const SearchUserItem = ({ item, query = '' }: { item: SearchResUser; query?: string }) => {
+interface SearchUserItemProps {
+  item: SearchResUser;
+  query?: string;
+}
+
+export default function SearchUserItem({ item, query = '' }: SearchUserItemProps) {
   return (
     <Menu.Item renderRoot={(p) => <Link {...p} to={`/profile/${item.username}`} />}>
       <Group>
@@ -24,6 +29,4 @@ const SearchUserItem = ({ item, query = '' }: { item: SearchResUser; query?: str
       </Group>
     </Menu.Item>
   );
-};
-
-export default SearchUserItem;
+}

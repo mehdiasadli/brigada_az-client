@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import GlobalSearchItem from './GlobalSearchItem';
 
-const GlobalSearch = () => {
+export default function GlobalSearch() {
   const query = useField({
     initialValue: '',
   });
@@ -49,6 +49,4 @@ const GlobalSearch = () => {
       )}
     </Menu>
   );
-};
-
-export default GlobalSearch;
+}

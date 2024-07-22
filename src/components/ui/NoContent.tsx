@@ -5,7 +5,11 @@ interface NoContentProps extends TextProps {
   label?: React.ReactNode;
 }
 
-const NoContent = ({ containerProps, label = 'No content', ...props }: NoContentProps) => {
+export default function NoContent({
+  containerProps,
+  label = 'No content',
+  ...props
+}: NoContentProps) {
   return (
     <Center {...containerProps}>
       <Text c='dimmed' size='sm' {...props}>
@@ -13,6 +17,4 @@ const NoContent = ({ containerProps, label = 'No content', ...props }: NoContent
       </Text>
     </Center>
   );
-};
-
-export default NoContent;
+}

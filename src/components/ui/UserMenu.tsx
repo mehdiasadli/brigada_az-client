@@ -9,7 +9,7 @@ const Target = forwardRef<HTMLDivElement>((props, ref) => (
   </div>
 ));
 
-const UserMenu = () => {
+export default function UserMenu() {
   return (
     <Menu withArrow withinPortal>
       <Menu.Target>
@@ -21,6 +21,4 @@ const UserMenu = () => {
       </Menu.Dropdown>
     </Menu>
   );
-};
-
-export default UserMenu;
+}
