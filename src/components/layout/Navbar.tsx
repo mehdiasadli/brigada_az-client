@@ -1,19 +1,19 @@
-import { Anchor, Card, Divider, Flex, Group, Stack, Text } from '@mantine/core';
+import { Divider, Flex, Stack,  } from '@mantine/core';
 import UserPanel from '../ui/UserPanel';
 import { Icon, IconHome, IconProps } from '@tabler/icons-react';
-import { Link } from 'react-router-dom';
 import LogoutButton from '../buttons/LogoutButton';
 import React from 'react';
+import NavbarItem from '../ui/NavbarItem';
 
-type NavbarItem = {
+export type NavbarItemType = {
   label: string;
   Icon: React.ForwardRefExoticComponent<IconProps & React.RefAttributes<Icon>>;
   to: string;
 };
 
 interface NavbarProps {
-  items?: NavbarItem[];
-  children?: React.FC<{ item: NavbarItem }>;
+  items?: NavbarItemType[];
+  children?: React.FC<{ item: NavbarItemType }>;
 }
 
 export default function Navbar({
@@ -38,14 +38,7 @@ export default function Navbar({
           children ? (
             <React.Fragment key={item.to}>{children({ item })}</React.Fragment>
           ) : (
-            <Card key={item.to} component={Link} to={item.to} shadow='xs'>
-              <Anchor>
-                <Group align='center'>
-                  <item.Icon size={20} />
-                  <Text>{item.label}</Text>
-                </Group>
-              </Anchor>
-            </Card>
+            <NavbarItem item={item} />
           )
         )}
       </Stack>
