@@ -3,10 +3,8 @@ import { IPost } from '../../types/models';
 import AddComment from './AddComment';
 import { usePostComments } from '../../api/comment/queries';
 import Infinite from '../layout/Infinite';
-import UserPanel from './UserPanel';
-import dayjs from 'dayjs';
-import ContentBox from './ContentBox';
 import { useData } from '../../hooks/useData';
+import Comment from './Comment';
 
 interface CommentListProps {
   post: IPost;
@@ -37,20 +35,7 @@ export default function CommentList({ post }: CommentListProps) {
               gap={5}
               px={5}
             >
-              {({ item }) => (
-                <Card p={10} withBorder>
-                  <Stack gap={8}>
-                    <UserPanel user={item.author} description={dayjs(item.created_at).fromNow()} />
-                    <ContentBox
-                      sx={{ borderTopLeftRadius: 0 }}
-                      
-                      py={5}
-                      px={5}
-                      content={item.content}
-                    />
-                  </Stack>
-                </Card>
-              )}
+              {({ item }) => <Comment comment={item} />}
             </Infinite>
           </Stack>
         )}
