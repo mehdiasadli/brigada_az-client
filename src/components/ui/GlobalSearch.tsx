@@ -3,10 +3,9 @@ import { useField } from '@mantine/form';
 import { IconSearch } from '@tabler/icons-react';
 import { useGlobalSearch } from '../../api/common/queries';
 import { useDidUpdate } from '@mantine/hooks';
-import React, { useEffect } from 'react';
-import SearchPostItem from './SearchPostItem';
-import SearchUserItem from './SearchUserItem';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import GlobalSearchItem from './GlobalSearchItem';
 
 const GlobalSearch = () => {
   const query = useField({
@@ -44,13 +43,7 @@ const GlobalSearch = () => {
       {data && data.length > 0 && (
         <Menu.Dropdown w='min(90%, 30rem)' mt={10}>
           {data.map((item) => (
-            <React.Fragment key={item.id}>
-              {item.type === 'POST' ? (
-                <SearchPostItem item={item} query={query.getValue()} />
-              ) : (
-                <SearchUserItem item={item} query={query.getValue()} />
-              )}
-            </React.Fragment>
+            <GlobalSearchItem key={item.id} item={item} query={query.getValue()} />
           ))}
         </Menu.Dropdown>
       )}
