@@ -1,4 +1,8 @@
-import { TCreateUserSchema, TUpdateUserSchema } from '../../schemas/user.schema';
+import {
+  TChangePasswordSchema,
+  TCreateUserSchema,
+  TUpdateUserSchema,
+} from '../../schemas/user.schema';
 import { IProfile, IPublicUser } from '../../types/models';
 import { Api } from '../config';
 
@@ -10,6 +14,8 @@ export const service = {
     await api.put<IPublicUser>('/' + id, data),
   profile: async (userId: string) => await api.get<IProfile>('/profile/' + userId),
   search: async (query?: string) => await api.get<IPublicUser[]>('/search', { query: { query } }),
+  changePassword: async (data: TChangePasswordSchema) =>
+    await api.put<IPublicUser>('/passwords', data),
 };
 
 export const keys = {

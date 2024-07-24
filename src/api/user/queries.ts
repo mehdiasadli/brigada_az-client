@@ -16,3 +16,4 @@ export const useSearchUsers = (query?: string) => {
     enabled: false,
   }) as QueryResult<IPublicUser[]>;
 };
+

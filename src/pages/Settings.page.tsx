@@ -1,4 +1,4 @@
-import { Button, Stack, TextInput, Textarea, Title } from '@mantine/core';
+import { Anchor, Button, Stack, TextInput, Textarea, Title } from '@mantine/core';
 import { useUser } from '../hooks/useUser';
 import { useForm, zodResolver } from '@mantine/form';
 import { TUpdateUserSchema, UpdateUserSchema } from '../schemas/user.schema';
@@ -6,9 +6,17 @@ import dayjs from 'dayjs';
 import { DatePickerInput } from '@mantine/dates';
 import { useUpdateUser } from '../api/user/mutation';
 import MetaTitle from '../components/ui/MetaTitle';
+import { modals } from '@mantine/modals';
+import ChangePasswordModal from '../components/modals/ChangePasswordModal';
 
 const SettingsPage = () => {
   const user = useUser();
+
+  const openChangePasswordModal = () =>
+    modals.open({
+      title: 'Change your password',
+      children: <ChangePasswordModal />,
+    });
 
   const form = useForm<TUpdateUserSchema>({
     initialValues: {
@@ -83,6 +91,9 @@ const SettingsPage = () => {
         <Button type='submit' disabled={!form.isDirty()} color='yellow' loading={isPending}>
           Update
         </Button>
+        <Anchor onClick={openChangePasswordModal} ta='center'>
+          Change Password
+        </Anchor>
       </Stack>
     </form>
   );
