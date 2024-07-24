@@ -19,6 +19,20 @@ Tags meanings:
 
 ---
 
+## v1.3.0 -- 2024-07-24
+### Feat
+- See bios of users
+- Update bio
+- Change password
+- Removed Post searching from Global Search input
+
+### Add
+- Full refactor
+- Search component changed into Combobox
+
+### Style
+- Navbar items
+
 ## v1.2.2 -- 2024-07-20
 ### Feat
 - Remove friends tab from Profile

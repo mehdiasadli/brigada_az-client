@@ -13,7 +13,6 @@ export const useProfile = (userId: string) => {
 export const useSearchUsers = (query?: string) => {
   return useFetch(keys.search(), {
     queryFn: () => service.search(query),
-    enabled: false,
+    enabled: Boolean(query),
   }) as QueryResult<IPublicUser[]>;
 };
-

@@ -21,6 +21,8 @@ export type IUser = {
   followed_by: IFollowship[];
   following: IFollowship[];
   played: IPlayer[];
+  mentioned: IMention[];
+  mentioner: IMention[];
 } & IPublicUser;
 
 export type IPublicUser = {
@@ -75,6 +77,7 @@ export type IPost = {
   likes: ILike[];
   comments: IComment[];
   author: IUser;
+  mentions: IMention[];
 } & Prisma;
 
 export type ILike = {
@@ -82,6 +85,16 @@ export type ILike = {
   postId: string;
 
   user: IUser;
+} & Prisma<false>;
+
+export type IMention = {
+  mentionerId: string;
+  mentionedId: string;
+  postId: string;
+
+  mentioned: IUser;
+  mentioner: IUser;
+  post: IPost;
 } & Prisma<false>;
 
 export type IComment = {
@@ -108,4 +121,3 @@ export type IProfile = IUser & {
     likes: number;
   };
 };
-
