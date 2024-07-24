@@ -1,4 +1,4 @@
-import { Text, useMantineTheme } from '@mantine/core';
+import { Stack, Text, Textarea, useMantineTheme } from '@mantine/core';
 import { Flex, Group } from '@mantine/core';
 import { IconCake, IconUserPlus } from '@tabler/icons-react';
 import dayjs from 'dayjs';
@@ -14,19 +14,29 @@ export default function ProfileDesc({ user }: ProfileDescProps) {
   } = useMantineTheme();
 
   return (
-    <Flex justify='space-between'>
-      <Group align='center' gap={10}>
-        <IconCake size={13} color={gray[7]} />
-        <Text fz='xs' c='dimmed'>
-          Born on {dayjs(user.date_of_birth).format('D MMMM YYYY')}
-        </Text>
-      </Group>
-      <Group align='center' gap={10}>
-        <IconUserPlus size={13} color={gray[7]} />
-        <Text fz='xs' c='dimmed'>
-          Joined on {dayjs(user.created_at).format('D MMMM YYYY')}
-        </Text>
-      </Group>
-    </Flex>
+    <Stack>
+      <Flex justify='space-between'>
+        <Group align='center' gap={10}>
+          <IconCake size={13} color={gray[7]} />
+          <Text fz='xs' c='dimmed'>
+            Born on {dayjs(user.date_of_birth).format('D MMMM YYYY')}
+          </Text>
+        </Group>
+        <Group align='center' gap={10}>
+          <IconUserPlus size={13} color={gray[7]} />
+          <Text fz='xs' c='dimmed'>
+            Joined on {dayjs(user.created_at).format('D MMMM YYYY')}
+          </Text>
+        </Group>
+      </Flex>
+      {user.bio && (
+        <Textarea
+          value={user.bio}
+          readOnly
+          autosize
+          styles={{ input: { background: gray[0], border: 'none', fontSize: 12 } }}
+        />
+      )}
+    </Stack>
   );
 }

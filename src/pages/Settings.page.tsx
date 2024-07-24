@@ -1,4 +1,4 @@
-import { Button, Stack, TextInput, Title } from '@mantine/core';
+import { Button, Stack, TextInput, Textarea, Title } from '@mantine/core';
 import { useUser } from '../hooks/useUser';
 import { useForm, zodResolver } from '@mantine/form';
 import { TUpdateUserSchema, UpdateUserSchema } from '../schemas/user.schema';
@@ -9,6 +9,7 @@ import MetaTitle from '../components/ui/MetaTitle';
 
 const SettingsPage = () => {
   const user = useUser();
+
   const form = useForm<TUpdateUserSchema>({
     initialValues: {
       email: user.email,
@@ -16,6 +17,7 @@ const SettingsPage = () => {
       last_name: user.last_name,
       date_of_birth: new Date(user.date_of_birth),
       positions: user.positions,
+      bio: user.bio,
     },
     validate: zodResolver(UpdateUserSchema),
     onValuesChange(values) {
@@ -71,6 +73,12 @@ const SettingsPage = () => {
           maxDate={dayjs().subtract(12, 'years').toDate()}
           minDate={dayjs().subtract(100, 'years').toDate()}
           {...form.getInputProps('date_of_birth')}
+        />
+        <Textarea
+          label='Bio'
+          autosize
+          placeholder='Enter your bio'
+          {...form.getInputProps('bio')}
         />
         <Button type='submit' disabled={!form.isDirty()} color='yellow' loading={isPending}>
           Update

@@ -47,6 +47,7 @@ export const CreateUserSchema = z.object({
 
 const UpdateUserBaseSchema = z.object({
   date_of_birth: DateOfBirthDto,
+  bio: z.string().max(500, 'Bio cannot exceed 500 characters').optional(),
 });
 
 export const UpdateUserSchema = CreateUserSchema.omit({
