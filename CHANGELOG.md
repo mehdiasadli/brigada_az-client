@@ -19,6 +19,10 @@ Tags meanings:
 
 ---
 
+## v1.3.2 -- 2024-07-25
+### Fix
+- Like list loading state
+
 ## v1.3.1 -- 2024-07-25
 ### Add
 - Remove positions field from create and update user
