@@ -19,7 +19,12 @@ Tags meanings:
 
 ---
 
-## v1.3.0 -- 2024-07-24
+## v1.3.1 -- 2024-07-25
+### Add
+- Remove positions field from create and update user
+- Set ui maximum scale to 1
+
+## v1.3.0 -- 2024-07-25
 ### Feat
 - See bios of users
 - Update bio
