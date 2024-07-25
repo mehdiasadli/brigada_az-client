@@ -1,4 +1,4 @@
-import { AvatarProps, Flex, FlexProps, Group, GroupProps, Stack, Text } from '@mantine/core';
+import { AvatarProps, Flex, FlexProps, Stack, Text } from '@mantine/core';
 import { useUser } from '../../hooks/useUser';
 import { IUser } from '../../types/models';
 import UserAvatar from './UserAvatar';

@@ -1,4 +1,4 @@
-import { ActionIcon, Button, Combobox, Flex, Group } from '@mantine/core';
+import { ActionIcon, Button, Combobox } from '@mantine/core';
 import { IconUserPlus, IconX } from '@tabler/icons-react';
 import { useForm } from '@mantine/form';
 import { TCreatePostSchema } from '../../schemas/post.schema';

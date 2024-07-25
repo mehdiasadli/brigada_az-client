@@ -2,11 +2,9 @@ import { useState } from 'react';
 import { useSearchUsers } from '../../api/user/queries';
 import Search from '../ui/Search';
 import { Combobox } from '@mantine/core';
-import { modals } from '@mantine/modals';
 
 interface MentionModalProps {
   add: (username: string) => void;
-  
 }
 
 export default function MentionModal({ add }: MentionModalProps) {
