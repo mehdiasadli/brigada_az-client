@@ -24,8 +24,7 @@ const SettingsPage = () => {
       first_name: user.first_name,
       last_name: user.last_name,
       date_of_birth: new Date(user.date_of_birth),
-      positions: user.positions,
-      bio: user.bio,
+      bio: user.bio ?? '',
     },
     validate: zodResolver(UpdateUserSchema),
     onValuesChange(values) {
@@ -42,6 +41,7 @@ const SettingsPage = () => {
         ...values,
         first_name: values.first_name.trim(),
         last_name: values.last_name.trim(),
+        bio: values.bio?.trim(),
       };
     },
   });

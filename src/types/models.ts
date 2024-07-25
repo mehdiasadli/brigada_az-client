@@ -1,4 +1,4 @@
-import { Position, Role } from './enums';
+import { Role } from './enums';
 
 type Prisma<U extends boolean = true> = {
   id: string;
@@ -11,7 +11,6 @@ type Time<U extends boolean = true> = U extends true
 export type IUser = {
   bio?: string;
   date_of_birth: Date;
-  positions: Position[];
 
   likes: ILike[];
   comments: IComment[];

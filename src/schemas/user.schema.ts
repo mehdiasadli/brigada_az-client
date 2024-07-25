@@ -1,6 +1,5 @@
 import { z } from 'zod';
 import { regexes } from '../lib/regexes';
-import { Position } from '../types/enums';
 
 const EmailDto = z.string().min(1, 'Email is required').email('Invalid Email');
 
@@ -9,18 +8,6 @@ const UsernameDto = z
   .min(4, 'Username must be at least 4 characters long')
   .max(20, 'Username cannot exceed 20 characters')
   .regex(regexes.username, 'Username can only include english letters, digits and "_" symbol');
-
-const PositionsDto = z
-  .array(
-    z.nativeEnum(Position, {
-      errorMap() {
-        return {
-          message: `Only valid position values are ${Object.values(Position).join(', ')}`,
-        };
-      },
-    })
-  )
-  .max(4, 'Max limit for positions is 4');
 
 export const NameDto = (name: string) =>
   z
@@ -41,7 +28,6 @@ export const CreateUserSchema = z.object({
   password: PasswordDto,
   first_name: NameDto('First'),
   last_name: NameDto('Last'),
-  positions: PositionsDto,
   date_of_birth: DateOfBirthDto.optional(),
 });
 

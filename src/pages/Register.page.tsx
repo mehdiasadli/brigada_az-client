@@ -14,7 +14,6 @@ const RegisterPage = () => {
       date_of_birth: undefined,
       first_name: '',
       last_name: '',
-      positions: [],
       username: '',
     },
     validate: zodResolver(CreateUserSchema),
