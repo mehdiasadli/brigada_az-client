@@ -1,6 +1,6 @@
 import { useLogout } from './../auth/mutation';
 import { useMutate } from '../../hooks/react-query/useMutate';
-import { service } from './service';
+import { keys, service } from './service';
 import { UseMutationResult } from '@tanstack/react-query';
 import { ApiError } from '../../types/api';
 import { useNavigate } from 'react-router-dom';
@@ -45,6 +45,32 @@ export const useChangePassword = () => {
     onSuccess: () => {
       modals.closeAll();
       logout();
+    },
+  });
+};
+
+export const useUploadAvatar = () => {
+  const { updateUser } = useAuth();
+
+  return useMutate(service.uploadAvatar, {
+    showError: true,
+    showSuccess: 'Avatar uploaded',
+    autoRefetch: () => [keys.all()],
+    onSuccess(data) {
+      updateUser(data);
+    },
+  });
+};
+
+export const useDeleteAvatar = () => {
+  const { updateUser } = useAuth();
+
+  return useMutate(service.deleteAvatar, {
+    showError: true,
+    showSuccess: 'Avatar deleted',
+    autoRefetch: () => [keys.all()],
+    onSuccess(data) {
+      updateUser(data);
     },
   });
 };

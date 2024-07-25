@@ -19,6 +19,11 @@ Tags meanings:
 
 ---
 
+## v1.4.0 -- 2024-07-25
+### Feat
+- Uploading avatar
+- Deleting avatar
+
 ## v1.3.2 -- 2024-07-25
 ### Fix
 - Like list loading state

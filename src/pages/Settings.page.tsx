@@ -8,6 +8,7 @@ import { useUpdateUser } from '../api/user/mutation';
 import MetaTitle from '../components/ui/MetaTitle';
 import { modals } from '@mantine/modals';
 import ChangePasswordModal from '../components/modals/ChangePasswordModal';
+import AvatarSettings from '../components/ui/AvatarSettings';
 
 const SettingsPage = () => {
   const user = useUser();
@@ -61,6 +62,7 @@ const SettingsPage = () => {
       <Stack mt={10}>
         <Title order={2}>Update Your Account</Title>
 
+        <AvatarSettings />
         <TextInput label='First name' placeholder='ex: Jon' {...form.getInputProps('first_name')} />
         <TextInput label='Last name' placeholder='ex: Doe' {...form.getInputProps('last_name')} />
         <TextInput

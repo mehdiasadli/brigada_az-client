@@ -16,6 +16,8 @@ export const service = {
   search: async (query?: string) => await api.get<IPublicUser[]>('/search', { query: { query } }),
   changePassword: async (data: TChangePasswordSchema) =>
     await api.put<IPublicUser>('/passwords', data),
+  uploadAvatar: async (file: FormData) => await api.post<IPublicUser>('/upload/avatar', file),
+  deleteAvatar: async () => await api.put<IPublicUser>('/delete/avatar'),
 };
 
 export const keys = {
