@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDeleteAvatar, useUploadAvatar } from '../../api/user/mutation';
-import { Button, Fieldset, FileButton, Flex, Group, Stack } from '@mantine/core';
+import { Button, Fieldset, FileButton, Flex, Stack } from '@mantine/core';
 import UserAvatar from './UserAvatar';
 
 export default function AvatarSettings() {
