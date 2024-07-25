@@ -9,7 +9,7 @@ interface MentionModalProps {
 
 export default function MentionModal({ add }: MentionModalProps) {
   const [query, setQuery] = useState('');
-  const { data, isLoading, isFetching, refetch } = useSearchUsers(query);
+  const { data, isLoading, isFetching, refetch } = useSearchUsers(query, "mentions");
 
   return (
     <div>

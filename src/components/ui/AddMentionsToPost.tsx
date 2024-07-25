@@ -21,7 +21,7 @@ export default function AddMentionsToPost({
   closeAdd,
 }: AddMentionsToPostProps) {
   const [query, setQuery] = useState('');
-  const { data, isLoading, isFetching, refetch } = useSearchUsers(query);
+  const { data, isLoading, isFetching, refetch } = useSearchUsers(query, 'mentions');
   const { id } = useUser();
 
   const result = !data

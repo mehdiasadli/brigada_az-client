@@ -10,8 +10,8 @@ export const useProfile = (userId: string) => {
   }) as QueryResult<IProfile>;
 };
 
-export const useSearchUsers = (query?: string) => {
-  return useFetch(keys.search(), {
+export const useSearchUsers = (query?: string, place = 'global') => {
+  return useFetch(keys.search(place), {
     queryFn: () => service.search(query),
     enabled: Boolean(query),
   }) as QueryResult<IPublicUser[]>;

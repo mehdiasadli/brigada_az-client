@@ -24,5 +24,5 @@ export const keys = {
   profileWithoutUser: () => [...keys.detailsWithoutUser(), 'profile'] as const,
   details: (userId: string) => [...keys.detailsWithoutUser(), userId] as const,
   profile: (userId: string) => [...keys.profileWithoutUser(), userId] as const,
-  search: () => [...keys.all(), 'search'] as const,
+  search: (place: string) => [...keys.all(), 'search', place] as const,
 };
