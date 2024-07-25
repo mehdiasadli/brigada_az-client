@@ -25,6 +25,8 @@ Tags meanings:
 - Update bio
 - Change password
 - Removed Post searching from Global Search input
+- Mention other users on posts
+- Create button now only works for Post
 
 ### Add
 - Full refactor
@@ -32,6 +34,9 @@ Tags meanings:
 
 ### Style
 - Navbar items
+- Comments
+- Post header
+- Create Post Modal
 
 ## v1.2.2 -- 2024-07-20
 ### Feat

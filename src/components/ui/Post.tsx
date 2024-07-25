@@ -8,6 +8,7 @@ import CommentList from './CommentList';
 import ContentBox from './ContentBox';
 import { useIsMutating } from '@tanstack/react-query';
 import { useStatus } from '../../hooks/useStatus';
+import PostMentions from './PostMentions';
 
 interface PostProps extends CardProps {
   post: IPost;
@@ -38,10 +39,11 @@ export default function Post({
       <Card withBorder {...props}>
         <Stack>
           <Flex align='center' justify='space-between'>
-            <UserPanel user={post.author} withUsername />
-            <Text size='xs' c='dimmed'>
-              Posted {dayjs(post.created_at).fromNow()}
-            </Text>
+            <UserPanel
+              user={post.author}
+              description={dayjs(post.created_at).fromNow()}
+              extra={<PostMentions mentions={post.mentions} />}
+            />
           </Flex>
           <ContentBox content={post.content} />
           <PostFooter post={post} />

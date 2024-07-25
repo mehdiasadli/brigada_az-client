@@ -8,9 +8,10 @@ import { Link } from 'react-router-dom';
 interface UserNameProps {
   user?: IUser;
   noAction?: boolean;
+  title?: React.ReactNode;
 }
 
-export default function UserName({ user, noAction = false }: UserNameProps) {
+export default function UserName({ user, title, noAction = false }: UserNameProps) {
   const { first_name, last_name, roles, username } = user ?? useUser();
   const { colors } = useMantineTheme();
 
@@ -31,6 +32,11 @@ export default function UserName({ user, noAction = false }: UserNameProps) {
         {first_name} {last_name}
       </Text>
       {Icon !== null ? <Icon size={12} color={colors.yellow[6]} /> : null}
+      {title && (
+        <Text c='dimmed' fz={12}>
+          {title}
+        </Text>
+      )}
     </Group>
   );
 }

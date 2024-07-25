@@ -67,7 +67,7 @@ export default function Search<T extends { id: string }>({
   return (
     <Combobox
       store={store}
-      withinPortal={false}
+      withinPortal={true}
       onOptionSubmit={(value, optionProps) => {
         onSubmit(value, store, optionProps);
       }}

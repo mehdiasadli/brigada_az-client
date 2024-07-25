@@ -1,6 +1,6 @@
-import { Button, Menu } from '@mantine/core';
+import { Button } from '@mantine/core';
 import { modals } from '@mantine/modals';
-import { IconPlus, IconTextCaption } from '@tabler/icons-react';
+import { IconPlus } from '@tabler/icons-react';
 import CreatePostModal from '../modals/CreatePostModal';
 
 export default function CreateButton() {
@@ -10,19 +10,31 @@ export default function CreateButton() {
       children: <CreatePostModal />,
     });
 
-  return (
-    <Menu>
-      <Menu.Target>
-        <Button color='green' variant='outline' size='xs' leftSection={<IconPlus size={15} />}>
-          Create
-        </Button>
-      </Menu.Target>
+  // return (
+  //   <Menu>
+  //     <Menu.Target>
+  //       <Button color='green' variant='outline' size='xs' leftSection={<IconPlus size={15} />}>
+  //         Create
+  //       </Button>
+  //     </Menu.Target>
 
-      <Menu.Dropdown>
-        <Menu.Item onClick={createPost} color='green' leftSection={<IconTextCaption size={14} />}>
-          Post
-        </Menu.Item>
-      </Menu.Dropdown>
-    </Menu>
+  //     <Menu.Dropdown>
+  //       <Menu.Item onClick={createPost} color='green' leftSection={<IconTextCaption size={14} />}>
+  //         Post
+  //       </Menu.Item>
+  //     </Menu.Dropdown>
+  //   </Menu>
+  // );
+
+  return (
+    <Button
+      variant='outline'
+      size='xs'
+      onClick={createPost}
+      color='green'
+      leftSection={<IconPlus size={14} />}
+    >
+      Create
+    </Button>
   );
 }

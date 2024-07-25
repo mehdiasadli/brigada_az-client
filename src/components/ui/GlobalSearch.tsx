@@ -20,7 +20,6 @@ export default function GlobalSearch() {
       setQuery={setQuery}
       refetch={refetch}
       data={data}
-      comboboxProps={{ withinPortal: true }}
       inputProps={{
         size: 'xs',
       }}
