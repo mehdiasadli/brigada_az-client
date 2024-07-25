@@ -24,6 +24,9 @@ Tags meanings:
 - Uploading avatar
 - Deleting avatar
 
+### Style
+- Content boxes
+
 ## v1.3.2 -- 2024-07-25
 ### Fix
 - Like list loading state

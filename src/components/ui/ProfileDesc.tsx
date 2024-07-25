@@ -1,8 +1,9 @@
-import { Stack, Text, Textarea, useMantineTheme } from '@mantine/core';
+import { Stack, Text, useMantineTheme } from '@mantine/core';
 import { Flex, Group } from '@mantine/core';
 import { IconCake, IconUserPlus } from '@tabler/icons-react';
 import dayjs from 'dayjs';
 import { IUser } from '../../types/models';
+import ContentBox from './ContentBox';
 
 interface ProfileDescProps {
   user: IUser;
@@ -29,14 +30,7 @@ export default function ProfileDesc({ user }: ProfileDescProps) {
           </Text>
         </Group>
       </Flex>
-      {user.bio && (
-        <Textarea
-          value={user.bio}
-          readOnly
-          autosize
-          styles={{ input: { background: gray[0], border: 'none', fontSize: 12 } }}
-        />
-      )}
+      {user.bio && <ContentBox content={user.bio} size='xs' />}
     </Stack>
   );
 }

@@ -1,20 +1,20 @@
-import { Box, BoxProps, Text, TextProps } from '@mantine/core';
+import { Textarea, TextareaProps, useMantineTheme } from '@mantine/core';
 
-interface ContentBoxProps extends BoxProps {
+interface ContentBoxProps extends TextareaProps {
   content: string;
-  textProps?: TextProps;
+  inputProps?: object;
 }
 
-export default function ContentBox({
-  content,
-  textProps = { size: 'sm' },
-  ...props
-}: ContentBoxProps) {
+export default function ContentBox({ content, inputProps, ...props }: ContentBoxProps) {
+  const { colors } = useMantineTheme();
+
   return (
-    <Box bg='gray.0' py={8} px={12} {...props}>
-      <Text size='sm' {...textProps}>
-        {content}
-      </Text>
-    </Box>
+    <Textarea
+      value={content}
+      styles={{ input: { background: colors.gray[0], border: 'none', ...inputProps } }}
+      readOnly
+      autosize
+      {...props}
+    />
   );
 }
