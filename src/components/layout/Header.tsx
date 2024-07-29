@@ -1,20 +1,27 @@
-import { Burger, Flex, Group } from '@mantine/core';
+import { Box, Flex, Group } from '@mantine/core';
 import CreateButton from '../buttons/CreateButton';
 import GlobalSearch from '../ui/GlobalSearch';
 
-interface HeaderProps {
-  opened: boolean;
-  toggle: () => void;
-}
-
-export default function Header({ opened, toggle }: HeaderProps) {
+export default function Header() {
   return (
     <Flex align='center' h='100%' justify='space-between'>
-      <Group align='center'>
-        <Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm' />
+      <Group
+        align='center'
+        sx={(_, u) => ({
+          [u.largerThan('xs')]: {
+            width: '80%',
+          },
+          [u.largerThan('sm')]: {
+            width: 300,
+          },
+          width: '100%',
+        })}
+      >
         <GlobalSearch />
       </Group>
-      <CreateButton />
+      <Box visibleFrom='sm'>
+        <CreateButton />
+      </Box>
     </Flex>
   );
 }

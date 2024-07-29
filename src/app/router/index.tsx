@@ -10,7 +10,6 @@ import ProfileLayout from '../../layouts/Profile.layout';
 import PostPage from '../../pages/Post.page';
 import ProfileFeedPage from '../../pages/ProfileFeed.page';
 import SettingsPage from '../../pages/Settings.page';
-import TestPage from '../../pages/Test.page';
 
 const Router = () => {
   const { token } = useAuth();
@@ -30,7 +29,6 @@ const Router = () => {
             <Route index element={<ProfileFeedPage />} />
           </Route>
         </Route>
-        <Route path='/test' element={<TestPage />} />
         <Route path='*' element={<h1>Not Found</h1>} />
       </Routes>
     </Container>

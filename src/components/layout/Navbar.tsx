@@ -1,31 +1,16 @@
-import { Divider, Flex, Stack,  } from '@mantine/core';
+import { Divider, Flex, Stack } from '@mantine/core';
 import UserPanel from '../ui/UserPanel';
-import { Icon, IconHome, IconProps } from '@tabler/icons-react';
 import LogoutButton from '../buttons/LogoutButton';
 import React from 'react';
 import NavbarItem from '../ui/NavbarItem';
-
-export type NavbarItemType = {
-  label: string;
-  Icon: React.ForwardRefExoticComponent<IconProps & React.RefAttributes<Icon>>;
-  to: string;
-};
+import { NavItemType } from '../../lib/navitems';
 
 interface NavbarProps {
-  items?: NavbarItemType[];
-  children?: React.FC<{ item: NavbarItemType }>;
+  items: NavItemType[];
+  children?: React.FC<{ item: NavItemType }>;
 }
 
-export default function Navbar({
-  items = [
-    {
-      label: 'Home',
-      Icon: IconHome,
-      to: '/',
-    },
-  ],
-  children,
-}: NavbarProps) {
+export default function Navbar({ items, children }: NavbarProps) {
   return (
     <Stack h='100%'>
       <Flex align='center' justify='space-between'>

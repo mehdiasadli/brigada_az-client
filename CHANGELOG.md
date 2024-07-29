@@ -19,6 +19,10 @@ Tags meanings:
 
 ---
 
+## v1.4.1 -- 2024-07-29
+### Style
+- Nav and Tab bar layouts
+
 ## v1.4.0 -- 2024-07-25
 ### Feat
 - Uploading avatar

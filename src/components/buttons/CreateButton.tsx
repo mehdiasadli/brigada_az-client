@@ -1,32 +1,24 @@
-import { Button } from '@mantine/core';
+import { ActionIcon, Button } from '@mantine/core';
 import { modals } from '@mantine/modals';
 import { IconPlus } from '@tabler/icons-react';
 import CreatePostModal from '../modals/CreatePostModal';
 
-export default function CreateButton() {
+interface CreateButtonProps {
+  tab?: boolean;
+}
+
+export default function CreateButton({ tab = false }: CreateButtonProps) {
   const createPost = () =>
     modals.open({
       title: 'Create Post',
       children: <CreatePostModal />,
     });
 
-  // return (
-  //   <Menu>
-  //     <Menu.Target>
-  //       <Button color='green' variant='outline' size='xs' leftSection={<IconPlus size={15} />}>
-  //         Create
-  //       </Button>
-  //     </Menu.Target>
-
-  //     <Menu.Dropdown>
-  //       <Menu.Item onClick={createPost} color='green' leftSection={<IconTextCaption size={14} />}>
-  //         Post
-  //       </Menu.Item>
-  //     </Menu.Dropdown>
-  //   </Menu>
-  // );
-
-  return (
+  return tab ? (
+    <ActionIcon variant='outline' size='xl' onClick={createPost} color='green'>
+      <IconPlus size={14} />
+    </ActionIcon>
+  ) : (
     <Button
       variant='outline'
       size='xs'

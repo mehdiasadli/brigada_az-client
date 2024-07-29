@@ -4,9 +4,11 @@ import Header from './Header';
 import Navbar from './Navbar';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import Tabbar from './Tabbar';
+import { navItems, tabItems } from '../../lib/navitems';
 
 export default function Shell({ children }: { children: React.ReactNode }) {
-  const [opened, { toggle, close }] = useDisclosure();
+  const [opened, { close }] = useDisclosure();
   const location = useLocation();
 
   useEffect(() => {
@@ -25,12 +27,13 @@ export default function Shell({ children }: { children: React.ReactNode }) {
       }}
     >
       <AppShell.Header px='sm'>
-        <Header opened={opened} toggle={toggle} />
+        <Header />
       </AppShell.Header>
       <AppShell.Navbar p='md'>
-        <Navbar />
+        <Navbar items={navItems} />
       </AppShell.Navbar>
       <AppShell.Main>{children}</AppShell.Main>
+      <Tabbar items={tabItems} />
     </AppShell>
   );
 }

@@ -1,9 +1,9 @@
 import { Anchor, Card, Group, Text } from '@mantine/core';
-import { NavbarItemType } from '../layout/Navbar';
 import { Link } from 'react-router-dom';
+import { NavItemType } from '../../lib/navitems';
 
 interface NavbarItemProps {
-  item: NavbarItemType;
+  item: NavItemType;
 }
 
 export default function NavbarItem({ item }: NavbarItemProps) {

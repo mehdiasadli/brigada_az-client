@@ -22,6 +22,7 @@ export default function GlobalSearch() {
       data={data}
       inputProps={{
         size: 'xs',
+        w: '100%',
       }}
       onSubmit={function (value, store) {
         navigate(value);
